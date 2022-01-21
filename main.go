@@ -91,7 +91,7 @@ func main() {
 	dat, err := os.ReadFile("env.toml")
 	if err != nil {
 		zlog.Err(err).Msg("There is no env file in this directory")
-		dat, err = os.ReadFile("/run/secrets/env.toml")
+		dat, err = os.ReadFile("/run/secrets/envfile")
 		OsPanic(err)
 	}
 

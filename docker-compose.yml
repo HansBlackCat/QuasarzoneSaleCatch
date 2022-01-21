@@ -6,7 +6,7 @@ services:
     image: qzcatch:1.0
     restart: always
     secrets:
-      - env
+      - envfile
 secrets:
-  env:
+  envfile:
     file: ./env.toml
