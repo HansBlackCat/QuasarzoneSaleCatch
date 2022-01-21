@@ -89,7 +89,11 @@ func main() {
 	r := rand.New(rand.NewSource(time.Now().Unix()))
 
 	dat, err := os.ReadFile("env.toml")
-	OsPanic(err)
+	if err != nil {
+		zlog.Err(err).Msg("There is no env file in this directory")
+		dat, err = os.ReadFile("/run/secrets/env.toml")
+		OsPanic(err)
+	}
 
 	var env Env
 	err = toml.Unmarshal([]byte(string(dat)), &env)

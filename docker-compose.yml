@@ -1,0 +1,12 @@
+﻿version: '3.6'
+
+services:
+  app:
+    build: ./
+    image: qzcatch:1.0
+    restart: always
+    secrets:
+      - env
+secrets:
+  env:
+    file: ./env.toml
